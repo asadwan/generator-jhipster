@@ -17,6 +17,7 @@
  limitations under the License.
 -%>
 import React, { useEffect } from 'react';
+import QRCode from 'qrcode.react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, <% if (haveFieldWithJavadoc) { %>UncontrolledTooltip, <% } %>Row, Col } from 'reactstrap';
@@ -169,6 +170,8 @@ export const <%= entityReactName %>Detail = (props: I<%= entityReactName %>Detai
             </dd>
             <%_ } _%>
           <%_ } _%>
+            <dt>QR code</dt><br/>
+            <dd><QRCode value={window.location.href}></QRCode></dd>
           </dl>
         <Button tag={Link} to="/<%= entityFileName %>" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline" ><Translate contentKey="entity.action.back">Back</Translate></span>
